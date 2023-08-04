@@ -1,21 +1,21 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { Octokit } from '@octokit/rest';
+
+const octokit = new Octokit({
+  auth: process.env.REACT_APP_GITHUB_TOKEN,
+});
 
 const searchUsersByLogin = createAsyncThunk(
   'search/searchUsers',
   async (query: string) => {
     try {
-      const usersResponse = await fetch(
-        `https://api.github.com/search/users?q=${query}+in:login&per_page=10`
-      );
+      const usersResponse = await octokit.rest.search.users({
+        q: query,
+        per_page: 10,
+      });
 
-      if (!usersResponse.ok) {
-        throw new Error();
-      }
-
-      const usersData = await usersResponse.json();
-
-      return usersData;
-    } catch {
+      return usersResponse.data;
+    } catch (error) {
       throw new Error();
     }
   }
