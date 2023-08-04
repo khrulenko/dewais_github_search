@@ -14,4 +14,5 @@ Used technologies:
 - Redux
   - toolkit
   - thunk
+- Material UI
 - Octokit.js (fetching GitHub data)

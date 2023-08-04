@@ -1,5 +1,7 @@
+import SearchPage from './ui/pages/SearchPage';
+
 const App = () => {
-  return <>Here will be a GitHub Search App</>;
+  return <SearchPage />;
 };
 
 export default App;
