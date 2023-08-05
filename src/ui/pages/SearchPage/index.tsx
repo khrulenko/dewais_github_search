@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { Stack } from '@mui/material';
+import { LinearProgress, Stack } from '@mui/material';
 import { getSearch } from '../../../redux/slices/searchSlice';
 import SearchBar from '../../components/SearchBar';
 import Tittle from '../../components/Tittle';
@@ -8,9 +8,11 @@ import HintText from '../../components/HintText';
 import NoUsersFoundAlert from '../../components/NoUsersFoundAlert';
 
 const SearchPage = () => {
-  const { searchResults, wasRespondEmpty, error } = useSelector(getSearch);
+  const { searchResults, wasRespondEmpty, isLoading, error } =
+    useSelector(getSearch);
   const areFoundUsers = Boolean(searchResults.length);
   const alert = wasRespondEmpty ? <NoUsersFoundAlert /> : <HintText />;
+  const content = areFoundUsers ? <UsersList users={searchResults} /> : alert;
 
   return (
     <Stack gap="24px">
@@ -18,7 +20,7 @@ const SearchPage = () => {
 
       <SearchBar />
 
-      {areFoundUsers ? <UsersList users={searchResults} /> : alert}
+      {isLoading ? <LinearProgress color="secondary" /> : content}
     </Stack>
   );
 };
