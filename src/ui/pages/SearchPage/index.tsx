@@ -4,9 +4,11 @@ import { getSearch } from '../../../redux/slices/searchSlice';
 import SearchBar from '../../components/SearchBar';
 import Tittle from '../../components/Tittle';
 import UsersList from '../../components/UsersList';
+import HintText from '../../components/HintText';
 
 const SearchPage = () => {
   const { searchResults, error } = useSelector(getSearch);
+  const areFoundUsers = Boolean(searchResults.length);
 
   return (
     <Stack gap="24px">
@@ -14,7 +16,7 @@ const SearchPage = () => {
 
       <SearchBar />
 
-      <UsersList users={searchResults} />
+      {areFoundUsers ? <UsersList users={searchResults} /> : <HintText />}
     </Stack>
   );
 };
