@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useState, KeyboardEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import { Button, Stack, styled, TextField } from '@mui/material';
 import { searchUsersByLogin } from '../../../common/api';
@@ -22,11 +22,18 @@ const SearchBar = () => {
     dispatch(searchUsersByLogin(query));
   };
 
+  const onUserKeyDown = ({ key }: KeyboardEvent) => {
+    if (key === 'Enter') {
+      onUsersSearch();
+    }
+  };
+
   return (
     <Wrapper>
       <TextField
         value={query}
         onChange={onType}
+        onKeyDown={onUserKeyDown}
         placeholder="username..."
         autoComplete="off"
         fullWidth
