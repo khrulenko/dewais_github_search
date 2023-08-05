@@ -1,7 +1,7 @@
-import SearchPage from './ui/pages/SearchPage';
+import AppRoutes from './routing/Routes';
 
 const App = () => {
-  return <SearchPage />;
+  return <AppRoutes />;
 };
 
 export default App;
