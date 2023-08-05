@@ -33,7 +33,7 @@ const searchUsersByLogin = createAsyncThunk(
 );
 
 const fetchUserData = createAsyncThunk(
-  'search/searchUsers',
+  'search/fetchUserData',
   (username: string) =>
     fetchData(octokit.rest.users.getByUsername, {
       username,
