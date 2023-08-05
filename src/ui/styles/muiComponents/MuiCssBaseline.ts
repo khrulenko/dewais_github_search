@@ -7,7 +7,7 @@ const MuiCssBaseline = {
     '#root': {
       minHeight: '100vh',
       height: '100%',
-      padding: '36px',
+      padding: '24px',
       background: 'linear-gradient(180deg, #FAACA8 0%, #DDD6F3 100%)',
     },
   },
