@@ -6,9 +6,9 @@ const NoUsersFoundAlert = () => {
 
   return (
     <AlertPageLayout icon={icon}>
-      there are no users with typed username,
+      no results found,
       <br />
-      try another one
+      try another username
     </AlertPageLayout>
   );
 };
