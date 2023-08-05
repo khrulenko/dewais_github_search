@@ -33,6 +33,7 @@ const user = createSlice({
         (state: User, action: PayloadAction<UserData>) => {
           state.userData = action.payload;
           state.isLoading = false;
+          state.error = false;
         }
       )
       .addCase(fetchUserData.rejected, (state: User) => {

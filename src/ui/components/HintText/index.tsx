@@ -11,7 +11,7 @@ const HintText = () => {
 
   return (
     <AlertPageLayout icon={icon}>
-      try to find some GitHub users,
+      try finding some GitHub users,
       <br />
       using the search bar above
     </AlertPageLayout>

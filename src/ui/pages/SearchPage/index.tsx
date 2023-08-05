@@ -7,11 +7,17 @@ import UsersList from '../../components/UsersList';
 import HintText from '../../components/HintText';
 import NoUsersFoundAlert from '../../components/NoUsersFoundAlert';
 import WithLoading from '../../components/WithLoading';
+import SearchErrorAlert from '../../components/SearchErrorAlert';
 
 const SearchPage = () => {
-  const { searchResults, wasRespondEmpty, isLoading } = useSelector(getSearch);
+  const { searchResults, wasRespondEmpty, isLoading, error } =
+    useSelector(getSearch);
   const areFoundUsers = Boolean(searchResults.length);
   const alert = wasRespondEmpty ? <NoUsersFoundAlert /> : <HintText />;
+
+  if (error) {
+    return <SearchErrorAlert />;
+  }
 
   return (
     <Stack gap="24px">

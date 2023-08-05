@@ -9,6 +9,7 @@ import { createWrapperStyles } from './styles';
 import Section from './Section';
 import UserPageHeader from './UserPageHeader';
 import WithLoading from '../../components/WithLoading';
+import UserErrorAlert from '../../components/UserErrorAlert';
 
 const Wrapper = styled(Paper)(createWrapperStyles);
 
@@ -18,7 +19,7 @@ const UserPage = () => {
   const queryParams = new URLSearchParams(location.search);
 
   const userName = queryParams.get('login');
-  const { userData, isLoading } = useSelector(getUser);
+  const { userData, isLoading, error } = useSelector(getUser);
   const { login, id, name, avatar_url, bio, html_url } = userData || {};
 
   useEffect(() => {
@@ -26,6 +27,10 @@ const UserPage = () => {
 
     dispatch(fetchUserData(userName));
   }, []);
+
+  if (error || !userName) {
+    return <UserErrorAlert />;
+  }
 
   return (
     <Wrapper>
