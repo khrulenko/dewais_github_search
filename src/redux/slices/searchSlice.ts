@@ -34,12 +34,14 @@ export interface Search {
   searchResults: SearchResultItem[];
   error: boolean;
   isLoading: boolean;
+  wasRespondEmpty: boolean;
 }
 
 const initialState: Search = {
   searchResults: [],
   error: false,
   isLoading: false,
+  wasRespondEmpty: false,
 };
 
 const search = createSlice({
@@ -54,8 +56,11 @@ const search = createSlice({
       .addCase(
         searchUsersByLogin.fulfilled,
         (state: Search, action: PayloadAction<SearchUsersResult>) => {
-          state.searchResults = action.payload.items;
+          const { items, total_count } = action.payload;
+
+          state.searchResults = items;
           state.isLoading = false;
+          state.wasRespondEmpty = !total_count;
         }
       )
       .addCase(searchUsersByLogin.rejected, (state: Search) => {
