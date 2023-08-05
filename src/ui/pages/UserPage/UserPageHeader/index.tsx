@@ -20,7 +20,11 @@ const UserPageHeader = ({ name, login, id, avatarUrl }: Props) => {
   const goToSearchPage = () => navigate(URL_SEARCH);
 
   return (
-    <Stack direction="row" justifyContent="space-between">
+    <Stack>
+      <Button startIcon={<ArrowBackIcon />} onClick={goToSearchPage}>
+        Back to search
+      </Button>
+
       <Stack direction="row" alignItems="center" gap="16px">
         <UserAvatar alt={`${login}'s avatar`} src={avatarUrl} />
 
@@ -31,10 +35,6 @@ const UserPageHeader = ({ name, login, id, avatarUrl }: Props) => {
           <Typography>id: {id}</Typography>
         </Stack>
       </Stack>
-
-      <Button startIcon={<ArrowBackIcon />} onClick={goToSearchPage}>
-        Back
-      </Button>
     </Stack>
   );
 };
