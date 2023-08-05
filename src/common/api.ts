@@ -11,7 +11,7 @@ const searchUsersByLogin = createAsyncThunk(
     try {
       const usersResponse = await octokit.rest.search.users({
         q: query,
-        per_page: 10,
+        per_page: 50,
       });
 
       return usersResponse.data;

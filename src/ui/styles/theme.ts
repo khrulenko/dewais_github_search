@@ -1,5 +1,5 @@
 import { createTheme, ThemeOptions } from '@mui/material';
-import { grey, teal } from '@mui/material/colors';
+import { grey, blueGrey } from '@mui/material/colors';
 import MuiButton from './muiComponents/MuiButton';
 import MuiCssBaseline from './muiComponents/MuiCssBaseline';
 import MuiTextField from './muiComponents/MuiTexfield';
@@ -11,7 +11,7 @@ const palette = {
     dark: grey[700],
     contrastText: '#fff',
   },
-  secondary: teal,
+  secondary: blueGrey,
 };
 
 const theme = createTheme({
