@@ -1,13 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
 import searchReducer, { Search } from '../slices/searchSlice';
+import userReducer, { User } from '../slices/userSlice';
 
 export interface State {
   search: Search;
+  user: User;
 }
 
-// redusers
+// reducers
 export const reducers = {
   search: searchReducer,
+  user: userReducer,
 };
 
 // store

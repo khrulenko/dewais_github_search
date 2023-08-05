@@ -1,34 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { searchUsersByLogin } from '../../common/api';
+import { GetResponseDataTypeFromEndpointMethod } from '@octokit/types';
+import { octokit, searchUsersByLogin } from '../../common/api';
 import { createSelector } from '../../common/utils';
 
-export interface SearchResultItem {
-  login: string;
-  id: number;
-  node_id: string;
-  avatar_url: string;
-  gravatar_id: string | null;
-  url: string;
-  html_url: string;
-  followers_url: string;
-  following_url: string;
-  gists_url: string;
-  starred_url: string;
-  subscriptions_url: string;
-  organizations_url: string;
-  repos_url: string;
-  events_url: string;
-  received_events_url: string;
-  type: string;
-  site_admin: boolean;
-  score: number;
-}
+type SearchUsersResult = GetResponseDataTypeFromEndpointMethod<
+  typeof octokit.rest.search.users
+>;
 
-interface SearchUsersResult {
-  total_count: number;
-  incomplete_results: boolean;
-  items: SearchResultItem[];
-}
+export type SearchResultItem = SearchUsersResult['items'][0];
 
 export interface Search {
   searchResults: SearchResultItem[];
