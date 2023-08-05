@@ -1,6 +1,6 @@
 # Khrulenko Vitalii's Dewais test task
 
-[LINK TO APP PREVIEW](https://khrulenko.github.io/dewais_github_search/)
+[LINK TO APP PREVIEW](https://dewais-github-search.vercel.app/)
 
 Used technologies:
 
