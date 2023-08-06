@@ -23,7 +23,7 @@ const initialState: Search = {
   wasRespondEmpty: false,
 };
 
-const search = createSlice({
+const searchSlice = createSlice({
   name: 'search',
   initialState,
   reducers: {},
@@ -50,4 +50,4 @@ const search = createSlice({
 });
 
 export const getSearch = createSelector('search');
-export default search.reducer;
+export default searchSlice.reducer;
