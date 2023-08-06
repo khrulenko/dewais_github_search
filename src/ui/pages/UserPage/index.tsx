@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { Divider, Link, Paper, Stack, styled } from '@mui/material';
 import { fetchUserData } from '../../../common/api';
 import { AppDispatch } from '../../../common/types';
-import { getUser } from '../../../redux/slices/userSlice';
+import { clearUserError, getUser } from '../../../redux/slices/userSlice';
 import { createWrapperStyles } from './styles';
 import Section from './Section';
 import UserPageHeader from './UserPageHeader';
@@ -23,9 +23,13 @@ const UserPage = () => {
   const { login, id, name, avatar_url, bio, html_url } = userData || {};
 
   useEffect(() => {
-    if (!userName) return;
+    if (userName) {
+      dispatch(fetchUserData(userName));
+    }
 
-    dispatch(fetchUserData(userName));
+    return () => {
+      dispatch(clearUserError());
+    };
   }, []);
 
   if (error || !userName) {
