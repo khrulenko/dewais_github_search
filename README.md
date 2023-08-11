@@ -24,4 +24,4 @@ A responsive and scalable single-page application (SPA) that allows users to sea
 
 ## Pay attention:
 
-It's allowed to make up to 60 requests per hour. To be able to make more requests follow instructions from `src/common/api` or use [LINK TO APP PREVIEW](https://dewais-github-search.vercel.app/)
+It's allowed to make up to 60 requests per hour. To be able to make more requests follow instructions from `src/common/api`
