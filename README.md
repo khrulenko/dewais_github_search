@@ -21,13 +21,21 @@
 
 ## Getting Started:
 
-```git clone {repository_url/ssh}```
+```
+git clone {repository_url/ssh}
+```
 
-```cd {repository_name}```
+```
+cd {repository_name}
+```
 
-```npm install```
+```
+npm install
+```
 
-```npm start```
+```
+npm start
+```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser
 
