@@ -27,6 +27,14 @@ const MuiTextField = {
       '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
         borderColor: divider,
       },
+      '& .MuiOutlinedInput-root.Mui-error .MuiOutlinedInput-notchedOutline': {
+        borderColor: 'red',
+      },
+      '& .MuiFormHelperText-root': {
+        position: 'absolute',
+        bottom: 0,
+        translate: '0 100%',
+      },
     }),
   },
 };

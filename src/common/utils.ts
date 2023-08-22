@@ -5,4 +5,7 @@ const createSelector =
   (state: State) =>
     state[dataField];
 
-export { createSelector };
+const isObjEmpty = (object: Record<any, any>): boolean =>
+  Object.keys(object).length === 0;
+
+export { createSelector, isObjEmpty };

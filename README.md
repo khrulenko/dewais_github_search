@@ -16,7 +16,20 @@
   - toolkit
   - thunk
 - Material UI
+- Joi.dev (data validation)
 - Octokit.js (fetching GitHub data, data types)
+
+## Getting Started:
+
+```git clone {repository_url/ssh}```
+
+```cd {repository_name}```
+
+```npm install```
+
+```npm start```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ## UX description:
 
